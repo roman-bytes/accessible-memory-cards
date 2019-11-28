@@ -1,0 +1,10 @@
+<div class="flip-card" [ngClass]="setFlipClass()" (click)="flipCard()">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src={{card.image}} alt="{{card.value}} of {{card.suit}}" />
+    </div>
+    <div class="flip-card-back">
+      <img width="226px" src='https://opengameart.org/sites/default/files/card%20back%20black_0.png' alt="card back" />
+    </div>
+  </div>
+</div>

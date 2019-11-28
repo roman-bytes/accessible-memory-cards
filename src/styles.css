@@ -1,1 +1,23 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Big+Shoulders+Display:900&display=swap');
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  color: white;
+  font-family: 'Big Shoulders Display', cursive;
+}
+
+body {
+  background: green;
+  background: url(https://i.imgur.com/ceM10Ux.jpg) no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.board {
+  width: 1200px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+}
