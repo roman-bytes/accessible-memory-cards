@@ -1,5 +1,17 @@
 # AccessibleMemoryCards
 
+A demo can be found here: [https://sad-khorana-762e83.netlify.com/](https://sad-khorana-762e83.netlify.com/)
+
+TODOS:
+
+[] Keep track of matches
+[] Only allow two flips
+[] Get rid of matches
+[] Add in a reset game
+[] Pass axe
+[] Set up grid / visually?
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.17.
 
 ## Development server
