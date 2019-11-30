@@ -1,4 +1,4 @@
-<form (ngSubmit)="createDeck()">
+<form (ngSubmit)="drawCards()">
   <legend><h1>Memory Card Game</h1></legend>
   <p>
     This is a basic memory game to look for a pair of cards with the same number
@@ -13,8 +13,6 @@
     <!-- <select name="singleSelect" [(ngModel)]="deckSize"> -->
     <select name="singleSelect" (change)="createDeck($event.target.value)">
       <option value="0">----</option>
-      <option value="2">2</option>
-      <option value="4">4</option>
       <option value="6">6</option>
       <option value="8">8</option>
       <option value="10">10</option>
@@ -28,5 +26,5 @@
       <option value="26">26</option>
     </select>
   </label>
-  <input type="submit" value="Play Game" (click)="drawCards()" />
+  <input type="submit" value="Play Game" />
 </form>
