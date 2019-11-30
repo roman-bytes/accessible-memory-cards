@@ -13,15 +13,57 @@ export class CardsService {
   draw:string = '';
   constructor(private http:HttpClient) { }
 
-  // Creates the amount of decks needed
-  createDeck():Observable<Deck[]> {
-    return this.http.get<Deck[]>(`${this.cardsUrl}${this.newDeck}`);
+  drawCards(deck):Observable<Card[]> {
+    console.log('deck_id', deck);
+    return this.http.get<Card[]>(`${this.cardsUrl}${deck['deck_id']}/draw/?count=${deck['remaining']}`);
   }
 
-  // Draws a certain number of cards
-  drawCards(deck_id):Observable<Card[]> {
-    console.log('DECK ID', deck_id);
+  // Creates deck of same color cards based on number select by user.
+  createDeck(deckSize):Observable<Deck[]> {
+    // Choose a random color, black or red
+    const color = this.chooseColor();
+    let suit, cards = [];
+      if (color === 'red') {
+        suit = ['H', 'D'];
+      } else if (color === 'black') {
+        suit = ['C', 'S'];
+      } else {
+        suit = 'Not color was found'
+      }
+    const suitSize = deckSize/2;
+    // Create array of cards
+    suit.forEach(s => {
+      for (let step = 0; step < suitSize; step++) {
+        switch (step) {
+          case 0:
+            cards.push(`A${s}`);
+            break;
+          case 10:
+            cards.push(`J${s}`);
+            break;
+          case 11:
+            cards.push(`Q${s}`);
+            break;
+          case 12:
+            cards.push(`K${s}`);
+            break;
+          default:
+            cards.push(`${step + 1}${s}`);
+            break;
+        }
+      }
+    });
+
+    // Make api call to get cards
+    const cardsString = cards.toString();
+    const url = `${this.cardsUrl}${this.newDeck}shuffle/?cards=${cardsString}`;
+    console.log('url', url);
     
-    return this.http.get<Card[]>(`${this.cardsUrl}`);
+    return this.http.get<Deck[]>(`${url}`);
+  }
+
+  chooseColor() {
+    const colors = ['red', 'black'];
+    return colors[Math.floor(Math.random()*colors.length)];
   }
 }

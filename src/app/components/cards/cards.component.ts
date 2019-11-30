@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Card } from '../../models/Cards';
+import { Deck } from '../../models/Deck';
 import { CardsService } from './../../services/cards.service';
 
 @Component({
@@ -9,20 +10,25 @@ import { CardsService } from './../../services/cards.service';
 })
 export class CardsComponent implements OnInit {
   cards:Card[];
-  deck:Object;
+  deck:Deck[];
 
   constructor(private cardsService:CardsService) {}
 
   ngOnInit() {
-      this.cardsService.createDeck().subscribe(deck => {
-          this.deck = deck;
-      });
+
+  }
+
+  drawAllCards() {
+    this.cardsService.drawCards(this.deck).subscribe(cards => {
+      this.cards = cards['cards'];
+    });
+  }
+
+  setDeckSize(deckSize) {
+    this.cardsService.createDeck(deckSize).subscribe(deck => {
+      console.log('deck', deck);
       
-      console.log('deck', this.deck);
-      if (this.deck) {
-        this.cardsService.drawCards(this.deck['deck_id']).subscribe(cards => {
-            this.cards = cards
-        })
-      }
+      this.deck = deck;
+    })
   }
 }
