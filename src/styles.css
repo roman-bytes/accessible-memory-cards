@@ -9,15 +9,16 @@ html, body {
 }
 
 body {
-  background: green;
+  background: rgb(17, 94, 21);
   background: url(https://i.imgur.com/ceM10Ux.jpg) no-repeat center center;
   background-size: cover;
   background-attachment: fixed;
 }
 
-.board {
+.board_wrap {
   width: 1200px;
   max-width: 100%;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
 }

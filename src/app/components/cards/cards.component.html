@@ -1,5 +1,9 @@
-<app-header
-  (setDeckSize)="setDeckSize($event)"
-  (drawAllCards)="drawAllCards()"
-></app-header>
-<app-card *ngFor="let card of cards" [card]="card"></app-card>
+<div>
+  <app-header
+    (setDeckSize)="setDeckSize($event)"
+    (drawAllCards)="drawAllCards()"
+  ></app-header>
+  <div class="board" role="main">
+    <app-card *ngFor="let card of cards" [card]="card"></app-card>
+  </div>
+</div>

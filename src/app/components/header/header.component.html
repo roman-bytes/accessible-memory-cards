@@ -1,30 +1,32 @@
-<form (ngSubmit)="drawCards()">
-  <legend><h1>Memory Card Game</h1></legend>
+<header>
+  <h1>Memory Game</h1>
   <p>
     This is a basic memory game to look for a pair of cards with the same number
-    and color. For example: A 2 of hears and a 2 of diamonds. A 3 of spades and
-    a 3 of clubs
+    and color.
   </p>
-  <span>
-    Please choose how many cards you would like to play with. Range: 6 - 26
-  </span>
-  <label>
-    Deck Size
-    <!-- <select name="singleSelect" [(ngModel)]="deckSize"> -->
-    <select name="singleSelect" (change)="createDeck($event.target.value)">
-      <option value="0">----</option>
-      <option value="6">6</option>
-      <option value="8">8</option>
-      <option value="10">10</option>
-      <option value="12">12</option>
-      <option value="14">14</option>
-      <option value="16">16</option>
-      <option value="18">18</option>
-      <option value="20">20</option>
-      <option value="22">22</option>
-      <option value="24">24</option>
-      <option value="26">26</option>
-    </select>
-  </label>
-  <input type="submit" value="Play Game" />
-</form>
+  <p>
+    Please choose how many cards you would like to play with.
+  </p>
+  <form (ngSubmit)="drawCards()">
+    <legend>Draw cards</legend>
+    <label>
+      Deck Size
+      <!-- <select name="singleSelect" [(ngModel)]="deckSize"> -->
+      <select name="singleSelect" (change)="createDeck($event.target.value)">
+        <option value="0">----</option>
+        <option value="6">6</option>
+        <option value="8">8</option>
+        <option value="10">10</option>
+        <option value="12">12</option>
+        <option value="14">14</option>
+        <option value="16">16</option>
+        <option value="18">18</option>
+        <option value="20">20</option>
+        <option value="22">22</option>
+        <option value="24">24</option>
+        <option value="26">26</option>
+      </select>
+    </label>
+    <input type="submit" value="Play Game" />
+  </form>
+</header>
